@@ -1,4 +1,60 @@
-div {
-    width: 1000px;
-    height: 1000px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+section {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 4.5%;
+}
+
+header .container {
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0rem 1rem 0rem;
+    z-index: 1000;
+}
+.container {
+    margin-left:7%;
+    margin-right:7%;
+}
+#nav_list {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 1.5rem; /* Abstand zwischen den Links */
+    align-items: right;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    
+}
+
+
+.nav-link {
+    color: white;
+    text-decoration: none; /* optional: kein Unterstrich */
+    font-weight: bold;
+    font-size: large;
+}
+
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+
+h1 {
+    color: white;
+    margin: 0;
+    padding:0;
 }
