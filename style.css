@@ -106,3 +106,56 @@ html {
     color: #cfd2f3; /* z.B. ein schönes Blau */
     font-weight: bold;
 }
+.hero-container {
+    height: 120vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10%;
+    box-sizing: border-box;
+  }
+  
+  .hero-ui {
+    text-align: right;
+    color: white;
+    padding: 1rem 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .hero-ui p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .cta-button.secondary {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
