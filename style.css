@@ -12,7 +12,7 @@ section {
 
 header .container {
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,7 +21,7 @@ header .container {
 }
 .container {
     margin-left:7%;
-    margin-right:7%;
+    margin-right:10%;
 }
 #nav_list {
     display: flex;
@@ -90,13 +90,13 @@ html {
 #landing_page_text_box {
     position: absolute;
     right: 0%;     /* Abstand von der rechten Seite */
-    bottom: 40%;    /* Abstand vom unteren Rand */
+    bottom: 35%;    /* Abstand vom unteren Rand */
     width: auto;   /* oder eine prozentuale Breite, z.B. 30% */
     color: white;  /* falls du weißen Text auf dunklem Hintergrund willst */
 }
 
 .landingpage_text {
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     font-family: "Segoe UI", sans-serif;
 }
 #landing_page_first_text {
