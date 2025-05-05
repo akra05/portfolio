@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
-    const mainSection = document.getElementById("main_section");
+    const navLinks = document.getElementsByClassName("nav-link");
+    const mainSection = document.getElementById("home");
   
     // Höhe des schwarzen Abschnitts
     const mainHeight = mainSection.offsetHeight;
@@ -12,9 +13,15 @@ window.addEventListener("DOMContentLoaded", () => {
       if (scrollY >= mainHeight) {
         // ab Unterschreitung des schwarzen Bereichs: schwarz auf weiß
         header.classList.add("dark");
+        for (let link of navLinks) {
+          link.classList.add("dark");
+        }
       } else {
         // sonst wieder weiß auf schwarz
         header.classList.remove("dark");
+        for (let link of navLinks) {
+          link.classList.remove("dark");
+        }
       }
     });
   });
