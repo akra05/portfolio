@@ -112,6 +112,7 @@ html {
     color: #cfd2f3; /* z.B. ein schönes Blau */
     font-weight: bold;
 }
+<<<<<<< HEAD
 #about_me{
     color:black;
 }
@@ -123,6 +124,15 @@ html {
     box-sizing: border-box;
     padding-bottom: 25vh;
     padding-right: 5vw;
+=======
+.hero-container {
+    height: 120vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10%;
+    box-sizing: border-box;
+>>>>>>> a26cc7c65ac7905e901ab749f72635dedc1ff07b
   }
   
   .hero-ui {
@@ -168,8 +178,11 @@ html {
   .cta-button.secondary:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+<<<<<<< HEAD
   }
   .hero-text{
     font-size: 1rem;
     color: white;
+=======
+>>>>>>> a26cc7c65ac7905e901ab749f72635dedc1ff07b
   }
