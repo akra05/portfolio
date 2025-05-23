@@ -194,3 +194,32 @@ html {
     color: white;
 
   }
+
+  #text-container{
+    font-size: 1.5rem;
+  }
+  
+  #test_div {
+    top: 50%;
+  }
+  .anim-box {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+  
+  /* Hineinfahren (wird von AOS mit .aos-animate umgesetzt) */
+  [data-aos] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  [data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Ausblend-Klasse für beide Scroll-Richtungen */
+  .anim-box.out {
+    opacity: 0;
+    transform: translateY(-20px);
+  }

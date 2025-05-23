@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
     const navLinks = document.getElementsByClassName("nav-link");
@@ -24,5 +25,32 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ duration: 800, offset: 200, mirror: false });
+  
+    const boxes = document.querySelectorAll('.anim-box');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          // Element ist im Viewport → Ausblend-Klasse entfernen
+          el.classList.remove('out');
+        } else {
+          // Element ist komplett aus dem Viewport → Ausblend-Klasse hinzufügen
+          // Wir prüfen: ist es nach oben oder nach unten raus?
+          // entry.boundingClientRect.y gibt Position relativ Viewport.
+          if (entry.boundingClientRect.top < 0 || entry.boundingClientRect.bottom > window.innerHeight) {
+            el.classList.add('out');
+          }
+        }
+      });
+    }, {
+      threshold: 0,       // schon bei kleinster Berührung feuern
+      rootMargin: '0px'
+    });
+  
+    boxes.forEach(b => observer.observe(b));
   });
   
