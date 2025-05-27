@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 800, offset: 200, mirror: false });
   
-    const boxes = document.querySelectorAll('.anim-box');
+    const boxes = document.querySelectorAll('.about_me_div');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const el = entry.target;

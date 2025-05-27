@@ -1,13 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
 section {
     width: 100vw;
     height: 100vh;
     
+}
+
+.section-container {
+  display: flex;
 }
 
 header .container {
@@ -198,26 +216,69 @@ html {
   #text-container{
     font-size: 1.5rem;
   }
-  
-  
-  
 
-  #image_replacement {
-    background-color: black;
-  }
+  /*Icons*/
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+  /* About me */
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: 10rem;
 
-  /* Hineinfahren (wird von AOS mit .aos-animate umgesetzt) */
-  [data-aos] {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  [data-aos].aos-animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Ausblend-Klasse für beide Scroll-Richtungen */
-  .anim-box.out {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+}
+
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
