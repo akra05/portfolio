@@ -232,8 +232,14 @@ html {
 }
 
 
-#about {
-  position: relative;
+#about_me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .about-containers {
@@ -245,6 +251,7 @@ html {
 .about-details-container {
   justify-content: center;
   flex-direction: column;
+  padding-top: 4.5rem;
 }
 
 .about-containers,
@@ -263,13 +270,15 @@ html {
 }
 
 .details-container {
-  padding: 1.5rem;
+  padding: 1rem;
+
   flex: 1;
   background: white;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  font-size: 0.7rem;
 }
 
 .section-container {
@@ -278,7 +287,8 @@ html {
 }
 
 .section__pic-container {
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 350px;
   margin: auto 0;
+  padding-top: 5.3rem;
 }

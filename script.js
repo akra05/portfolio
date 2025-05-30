@@ -1,56 +1,78 @@
-
-window.addEventListener("DOMContentLoaded", () => {
-    const header = document.getElementById("header");
-    const navLinks = document.getElementsByClassName("nav-link");
-    const mainSection = document.getElementById("home");
-  
-    // Höhe des schwarzen Abschnitts
-    const mainHeight = mainSection.offsetHeight;
-  
-    window.addEventListener("scroll", () => {
-      // Wie weit wir gescrollt haben
-      const scrollY = window.scrollY || window.pageYOffset;
-  
-      if (scrollY >= mainHeight) {
-        // ab Unterschreitung des schwarzen Bereichs: schwarz auf weiß
-        header.classList.add("dark");
-        for (let link of navLinks) {
-          link.classList.add("dark");
-        }
-      } else {
-        // sonst wieder weiß auf schwarz
-        header.classList.remove("dark");
-        for (let link of navLinks) {
-          link.classList.remove("dark");
-        }
-      }
-    });
+// AOS Initialisierung und Scroll-Effekte
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialisiere AOS
+  AOS.init({
+    duration: 800,
+    offset: 200,
+    mirror: false
   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    AOS.init({ duration: 800, offset: 200, mirror: false });
+  // Header und Navigationseffekte
+  const header = document.getElementById("header");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const mainSection = document.getElementById("home");
+
+  if (mainSection) {
+    const mainHeight = mainSection.offsetHeight;
+
+    // Funktion zum Aktualisieren der Header-Farben
+    const updateHeaderColors = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      
+      if (scrollY >= mainHeight) {
+        // Wechsel zu dunklem Modus
+        header.classList.replace("text-white", "text-black");
+        navLinks.forEach(link => {
+          link.classList.replace("text-white", "text-black");
+        });
+      } else {
+        // Wechsel zu hellem Modus
+        header.classList.replace("text-black", "text-white");
+        navLinks.forEach(link => {
+          link.classList.replace("text-black", "text-white");
+        });
+      }
+    };
+
+    // Initiale Ausführung und Event-Listener
+    updateHeaderColors();
+    window.addEventListener("scroll", updateHeaderColors);
+
+    // Nav-Link Einblend-Animation
+    navLinks.forEach((link, index) => {
+      setTimeout(() => {
+        link.classList.add("opacity-100");
+      }, 300 * (index + 1));
+    });
+  }
+
+  // Intersection Observer für About-Me Sektion
+  const aboutSections = document.querySelectorAll('.about-section');
   
-    const boxes = document.querySelectorAll('.about_me_div');
+  if (aboutSections.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const el = entry.target;
         if (entry.isIntersecting) {
-          // Element ist im Viewport → Ausblend-Klasse entfernen
-          el.classList.remove('out');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
         } else {
-          // Element ist komplett aus dem Viewport → Ausblend-Klasse hinzufügen
-          // Wir prüfen: ist es nach oben oder nach unten raus?
-          // entry.boundingClientRect.y gibt Position relativ Viewport.
-          if (entry.boundingClientRect.top < 0 || entry.boundingClientRect.bottom > window.innerHeight) {
-            el.classList.add('out');
+          // Nur ausblenden, wenn komplett außerhalb des Viewports
+          const rect = entry.boundingClientRect;
+          if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            entry.target.classList.remove('opacity-100', 'translate-y-0');
+            entry.target.classList.add('opacity-0', 'translate-y-10');
           }
         }
       });
     }, {
-      threshold: 0,       // schon bei kleinster Berührung feuern
+      threshold: 0.1,
       rootMargin: '0px'
     });
-  
-    boxes.forEach(b => observer.observe(b));
-  });
-  
+
+    aboutSections.forEach(section => {
+      // Initial verstecken
+      section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-500');
+      observer.observe(section);
+    });
+  }
+});
