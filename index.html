@@ -7,96 +7,106 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    .slide-out {
-      transform: translateX(100px);
-      transition: transform 0.5s ease-out;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    .nav-transition {
+      transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    
+    .slide-right {
+        transform: translateX(100px);
+        opacity: 0;
+        transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.7s ease;
+    }
+    .slide-left {
+        transform: translateX(-100px);
+        opacity: 0;
+        transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.7s ease;
     }
     .slide-in {
-      transform: translateX(0);
-      transition: transform 0.5s ease-in;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .cta-button {
+      transition: all 0.3s ease, transform 0.2s ease;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
   </style>
 </head>
-<body class="font-poppins overflow-x-hidden bg-gray-50">
+<body class="font-poppins overflow-x-hidden bg-gray-50 scroll-snap-y scroll-smooth h-screen overflow-y-scroll">
   <!-- Home Section -->
-  <section id="home" class="relative h-screen w-full overflow-hidden">
+  <section id="home" class="relative h-screen w-full overflow-hidden h-screen snap-start">
     <!-- Background Video -->
-    <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="sources/video/Hintergrund Optimiert verschönert.mp4" type="video/mp4">
       Dein Browser unterstützt das Video-Tag nicht.
     </video>
     
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 py-6 bg-black bg-opacity-30 backdrop-blur-sm">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 nav-transition">
       <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <h1 id="header" class="text-white text-2xl md:text-3xl font-bold opacity-80 transition-colors duration-300">
+        <h1 id="header" class="text-white text-2xl md:text-3xl font-bold transition-colors duration-300">
           Portfolio: Adrian Kraft
         </h1>
         <nav>
-          <ul id="nav_list" class="flex space-x-4 md:space-x-6">
-            <li><a href="#home" class="nav-link text-white font-medium md:text-lg opacity-0 transition-all duration-300">Home</a></li>
-            <li><a href="#about_me" class="nav-link text-white font-medium md:text-lg opacity-0 transition-all duration-300">About Me</a></li>
-            <li><a href="#projects" class="nav-link text-white font-medium md:text-lg opacity-0 transition-all duration-300">Projects</a></li>
-            <li><a href="#contact" class="nav-link text-white font-medium md:text-lg opacity-0 transition-all duration-300">Contact</a></li>
-          </ul>
+          <ul id="nav_list" class="flex space-x-3 sm:space-x-4 md:space-x-6">
+  <li><a href="#home" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Home</a></li>
+  <li><a href="#about_me" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">About Me</a></li>
+  <li><a href="#projects" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Projects</a></li>
+  <li><a href="#contact" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Contact</a></li>
+</ul>
+
         </nav>
       </div>
     </header>
     
     <!-- Hero Content -->
-    <div class="relative z-10 h-full flex items-center justify-end pr-4 md:pr-10 lg:pr-20 pb-32">
-      <div class="text-right border-l-2 border-white border-opacity-20 pl-6 py-2">
-        <p class="hero-text text-white text-xl md:text-2xl mb-8 opacity-90">
-          Informatikstudent & kreativer Entwickler
-        </p>
-        <div class="flex flex-wrap justify-end gap-4">
-          <a href="#projects" class="cta-button border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300 text-lg">
-            Projekte ansehen
-          </a>
-          <a href="#contact" class="cta-button secondary border-2 border-white border-opacity-40 text-white text-opacity-90 px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-20 hover:text-white transition-all duration-300 text-lg">
-            Kontakt
-          </a>
-        </div>
-      </div>
-    </div>
+    
   </section>
-
   <!-- About Me Section -->
-  <section id="about_me" class="min-h-screen w-full bg-white py-20 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+  <section id="about_me" class="min-h-screen w-full bg-white py-20 px-4 md:px-8 section-slide snap-start">
+    <div class="slide-content slide-right max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
       <!-- Profile Picture -->
-      <div class="w-full lg:w-2/5 flex justify-center" data-aos="fade-right">
-        <div class="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl">
+      <div class="w-full lg:w-2/5 flex justify-center">
+        <div class="w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden shadow-xl">
           <img src="./assets/about-pic.png" alt="Profile picture" class="w-full h-full object-cover">
         </div>
       </div>
       
       <!-- About Content -->
-      <div class="w-full lg:w-3/5" data-aos="fade-left">
+      <div class="w-full lg:w-3/5 mt-8 lg:mt-0">
         <!-- Info Cards -->
-        <div class="flex flex-col md:flex-row gap-8 mb-12">
+        <div class="flex flex-col md:flex-row gap-6 mb-8">
           <!-- Projects Card -->
-          <div class="flex-1 bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl">
-            <div class="flex justify-center mb-5">
-              <img src="./assets/experience.png" alt="Experience icon" class="w-14 h-14">
+          <div class="flex-1 bg-white rounded-2xl border border-gray-200 p-6 text-center shadow-md transition-all duration-300 hover:shadow-lg">
+            <div class="flex justify-center mb-4">
+              <img src="./assets/experience.png" alt="Experience icon" class="w-12 h-12">
             </div>
-            <h3 class="text-2xl font-bold mb-3">Projects</h3>
-            <p class="text-gray-600 text-lg">2+ years <br>Frontend Development</p>
+            <h3 class="text-xl font-bold mb-2">Projects</h3>
+            <p class="text-gray-600">2+ years <br>Frontend Development</p>
           </div>
           
           <!-- Education Card -->
-          <div class="flex-1 bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl">
-            <div class="flex justify-center mb-5">
-              <img src="./assets/education.png" alt="Education icon" class="w-14 h-14">
+          <div class="flex-1 bg-white rounded-2xl border border-gray-200 p-6 text-center shadow-md transition-all duration-300 hover:shadow-lg">
+            <div class="flex justify-center mb-4">
+              <img src="./assets/education.png" alt="Education icon" class="w-12 h-12">
             </div>
-            <h3 class="text-2xl font-bold mb-3">Education</h3>
-            <p class="text-gray-600 text-lg">B.Sc. Bachelors Degree<br>M.Sc. Masters Degree</p>
+            <h3 class="text-xl font-bold mb-2">Education</h3>
+            <p class="text-gray-600">B.Sc. Bachelors Degree<br>M.Sc. Masters Degree</p>
           </div>
         </div>
         
         <!-- About Text -->
-        <div class="mb-12">
-          <p class="text-gray-700 text-xl leading-relaxed">
+        <div class="mb-8">
+          <p class="text-gray-700 text-lg leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
             reprehenderit et laborum, rem, dolore eum quod voluptate
             exercitationem nobis, nihil esse debitis maxime facere minus sint
@@ -105,15 +115,15 @@
         </div>
         
         <!-- Buttons -->
-        <div class="flex flex-wrap gap-6">
-          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 font-medium rounded-xl text-base px-7 py-3.5 transition-colors flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="flex flex-wrap gap-4">
+          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
             Download CV
           </button>
-          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 font-medium rounded-xl text-base px-7 py-3.5 transition-colors flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
             Download Modules
@@ -124,17 +134,86 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="min-h-screen w-full bg-gray-50 py-24 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20">My Projects</h2>
-      <!-- Projects will be added here -->
+<section id="projects" class="w-full bg-gray-50 py-16 px-4 section-slide snap-start">
+  <div class="slide-content slide-left max-w-6xl mx-auto">
+
+    
+
+    <!-- Projektkarten-Container -->
+    <div class="flex flex-wrap gap-6 justify-center">
+      
+      <!-- Projektkarte 1 -->
+      <div class="max-w-xs w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img class="w-full h-44 object-cover" src="assets/webserver_pic.jpg" alt="Projektbild">
+        <div class="p-5">
+          <h3 class="text-xs text-gray-500 uppercase font-semibold tracking-wide">Kleines Projekt</h3>
+          <h2 class="mt-1.5 text-lg font-bold text-gray-800">Mein Portfolio Redesign</h2>
+          <p class="mt-1.5 text-gray-600 text-sm">
+            Eine moderne Web-App zur Darstellung meines Portfolios mit React, Tailwind und animierten Übergängen.
+          </p>
+          <div class="mt-3">
+            <a href="#" class="inline-block bg-gray-800 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors">
+              Mehr ansehen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projektkarte 2 -->
+      <div class="max-w-xs w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img class="w-full h-44 object-cover" src="assets/webserver_pic.jpg" alt="Projektbild">
+        <div class="p-5">
+          <h3 class="text-xs text-gray-500 uppercase font-semibold tracking-wide">Kleines Projekt</h3>
+          <h2 class="mt-1.5 text-lg font-bold text-gray-800">Mein Portfolio Redesign</h2>
+          <p class="mt-1.5 text-gray-600 text-sm">
+            Eine moderne Web-App zur Darstellung meines Portfolios mit React, Tailwind und animierten Übergängen.
+          </p>
+          <div class="mt-3">
+            <a href="#" class="inline-block bg-gray-800 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors">
+              Mehr ansehen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projektkarte 3 -->
+      <div class="max-w-xs w-full bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img class="w-full h-44 object-cover" src="assets/github.png" alt="Projektbild">
+        <div class="p-5">
+          <h3 class="text-xs text-gray-500 uppercase font-semibold tracking-wide">Kleines Projekt</h3>
+          <h2 class="mt-1.5 text-lg font-bold text-gray-800">Mein Portfolio Redesign</h2>
+          <p class="mt-1.5 text-gray-600 text-sm">
+            Eine moderne Web-App zur Darstellung meines Portfolios mit React, Tailwind und animierten Übergängen.
+          </p>
+          <div class="mt-3">
+            <a href="#" class="inline-block bg-gray-800 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors">
+              Mehr ansehen
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- GitHub Button zentriert -->
+    <div class="flex justify-center mt-4">
+      <div class="relative group">
+        <a href="https://github.com/dein-username" target="_blank" rel="noopener noreferrer">
+          <img src="assets/github.png" alt="GitHub Logo" class="w-12 h-12 cursor-pointer hover:scale-110 transition-transform duration-200" />
+        </a>
+        <div class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-sm bg-black text-white px-2 py-1 rounded shadow-md whitespace-nowrap">
+          Gesamtes Repository
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Contact Section -->
-  <section id="contact" class="min-h-screen w-full bg-white py-24 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-20">Contact Me</h2>
+  <section id="contact" class="min-h-[100vh] w-full bg-white py-20 px-4 section-slide snap-start">
+    <div class="slide-content slide-right max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Contact Me</h2>
       <!-- Contact form will be added here -->
     </div>
   </section>
@@ -145,41 +224,96 @@
     // Initialize AOS
     AOS.init({
       duration: 800,
-      offset: 200,
+      offset: 0,
       mirror: true
     });
 
-    // Scroll effect for sidebar sliding
+    // Header and Scroll Effects
     document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('section');
-      const navbar = document.querySelector('header');
-      const navHeight = navbar.offsetHeight;
+      const header = document.getElementById("main-header");
+      const h1 = document.getElementById("header");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const homeSection = document.getElementById("home");
+      const sections = document.querySelectorAll('.section-slide');
       
-      // Nav link animation
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach((link, index) => {
-        setTimeout(() => {
-          link.style.opacity = '1';
-        }, 300 * (index + 1));
-      });
+      let showHeaderTimeout;
 
-      // Side sliding effect
-      window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          
-          if (scrollPosition > sectionTop - navHeight && 
-              scrollPosition < sectionTop + sectionHeight - navHeight) {
-            section.classList.add('slide-out');
-          } else {
-            section.classList.remove('slide-out');
-            section.classList.add('slide-in');
-          }
+      // Nav link fade-in animation
+      navLinks.forEach((link) => 
+        {
+          link.classList.add("pointer-events-none");
+          link.classList.add("opacity-0");
         });
-      });
+      
+      
+      // Header and Scroll Effects
+      if (homeSection) {
+        const homeHeight = homeSection.offsetHeight;
+        
+        const updateHeader = () => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          
+          if (scrollY > homeHeight * 0.86) {
+            header.classList.add("bg-white", "shadow-md");
+            navLinks.forEach(link => {
+              link.classList.remove("pointer-events-none");
+              link.classList.replace("text-white", "text-gray-800");
+              link.classList.replace("opacity-0", "opacity-100");
+            });
+            if (window.innerWidth > 640){
+                h1.classList.replace("text-white", "text-gray-800");
+            }
+            else {
+                h1.classList.add("invisible", "absolute", "-z-10");
+            }
+    
+            
+          } else {
+            header.classList.remove("bg-white", "shadow-md");
+            navLinks.forEach(link => {
+              link.classList.add("pointer-events-none");    
+              link.classList.replace("text-gray-800", "text-white");
+              link.classList.replace("opacity-100", "opacity-0");
+            });
+            if (window.innerWidth > 640){
+                h1.classList.replace("text-gray-800", "text-white");
+            }
+            else {
+
+               clearTimeout(showHeaderTimeout);
+      showHeaderTimeout = setTimeout(() => {
+        h1.classList.remove("invisible", "absolute", "-z-10");
+      }, 50);
+            }
+            
+            
+          }
+        };
+        
+        // Initialize and add scroll listener
+        updateHeader();
+        window.addEventListener("scroll", updateHeader);
+      }
+      
+      // Section Slide Effect with Intersection Observer
+      const slide_div = document.querySelectorAll('.slide-content');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('slide-in');
+    } else {
+      entry.target.classList.remove('slide-in');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -40px 0px"
+});
+
+slide_div.forEach(section => {
+  observer.observe(section);
+});
     });
   </script>
 </body>
