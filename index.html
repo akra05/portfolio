@@ -69,7 +69,13 @@
     </header>
     
     <!-- Hero Content -->
-    
+    <!-- Contact Button (Bottom Right) -->
+<div class="absolute bottom-10 right-10 z-10">
+  <a href="#contact" class="px-5 py-2 bg-white bg-opacity-90 text-gray-800 text-sm md:text-base font-semibold rounded-full shadow hover:bg-opacity-100 transition">
+    Kontakt aufnehmen
+  </a>
+</div>
+
   </section>
   <!-- About Me Section -->
   <section id="about_me" class="min-h-screen w-full bg-white py-20 px-4 md:px-8 section-slide snap-start">
@@ -210,13 +216,45 @@
 </section>
 
 
-  <!-- Contact Section -->
-  <section id="contact" class="min-h-[100vh] w-full bg-white py-20 px-4 section-slide snap-start">
-    <div class="slide-content slide-right max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Contact Me</h2>
-      <!-- Contact form will be added here -->
+<!-- Contact Section -->
+<section id="contact" class="min-h-[86%] w-full bg-gray-100 flex items-center justify-center px-4 section-slide snap-start">
+  <div class="slide-content slide-right bg-white shadow-lg rounded-2xl p-10 max-w-5xl w-full text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Kontakt</h2>
+    <p class="text-gray-600 mb-10">Ich freue mich über Ihre Nachricht – ob per E-Mail, LinkedIn oder Telefon.</p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 flex-wrap">
+      <!-- E-Mail -->
+      <a href="mailto:adriankraft.career@gmail.com"
+         class="flex items-center gap-3 px-6 py-3 min-w-[280px] border border-black rounded-lg text-gray-800 hover:bg-gray-100 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <span class="text-sm sm:text-base text-left">adriankraft.career@gmail.com</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/adrian-kraft" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-3 px-6 py-3 min-w-[220px] border border-black rounded-lg text-gray-800 hover:bg-gray-100 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.7v2.2h.1c.7-1.3 2.4-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V24h-5v-7.4c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.9 1.9-2.9 3.9V24h-5V8z"/>
+        </svg>
+        <span class="text-sm sm:text-base text-left">LinkedIn Profil</span>
+      </a>
+
+      <!-- Telefon -->
+      <a href="tel:+491234567890"
+         class="flex items-center gap-3 px-6 py-3 min-w-[220px] border border-black rounded-lg text-gray-800 hover:bg-gray-100 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59-1.35 2.44a11.05 11.05 0 005.66 5.66l2.44-1.35L19 19v2a1 1 0 01-1 1h-1C9.16 21 3 14.84 3 7V6a1 1 0 011-1z" />
+        </svg>
+        <span class="text-sm sm:text-base text-left">+49 123 4567890</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
