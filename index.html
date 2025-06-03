@@ -51,22 +51,28 @@
     </video>
     
     <!-- Header -->
-    <header id="main-header" class="transition-none sm:transition-all fixed top-0 left-0 w-full z-50 py-6 nav-transition">
-      <div class="transition-none sm:transition-all container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <h1 id="header" class="text-white text-2xl md:text-3xl font-bold transition-colors duration-300">
-          Portfolio: Adrian Kraft
-        </h1>
-        <nav>
-          <ul id="nav_list" class="transition-none sm:transition-all flex space-x-3 sm:space-x-4 md:space-x-6">
-  <li><a href="#home" class="transition-none sm:transition-all nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Home</a></li>
-  <li><a href="#about_me" class="transition-none sm:transition-all nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">About Me</a></li>
-  <li><a href="#projects" class="transition-none sm:transition-all nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Projects</a></li>
-  <li><a href="#contact" class="transition-none sm:transition-all nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-all duration-300">Contact</a></li>
-</ul>
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 py-6 nav-transition transition-none sm:transition-all">
+  <div class="container mx-auto px-4 md:px-8 flex sm:ml-auto sm:mr-auto sm:static sm:transform-none">
+    
+    <!-- Titel bleibt sichtbar, kann aber über JS oder CSS (z. B. via IntersectionObserver) verschwinden -->
+    <h1 id="header" class="text-white text-2xl md:text-3xl font-bold transition-colors duration-300 absolute left-4 sm:static sm:left-auto transition-none sm:transition-all">
+      Portfolio: Adrian Kraft
+    </h1>
 
-        </nav>
-      </div>
-    </header>
+    <nav class="top-1/2 -translate-y-1/2 absolute left-1/2 transform -translate-x-1/2 sm:static sm:left-auto sm:transform-none sm:ml-auto">
+
+        <ul id="nav_list" class="flex space-x-3 sm:space-x-4 md:space-x-6">
+        <li><a href="#home" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-none sm:transition-all duration-300">Home</a></li>
+        <li><a href="#about_me" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-none sm:transition-all duration-300">About Me</a></li>
+        <li><a href="#projects" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-none sm:transition-all duration-300">Projects</a></li>
+        <li><a href="#contact" class="nav-link text-white font-medium text-sm md:text-base lg:text-lg opacity-0 transition-none sm:transition-all duration-300">Contact</a></li>
+    </ul>
+</nav>
+
+
+  </div>
+</header>
+
     
     <!-- Hero Content -->
     <!-- Contact Button (Bottom Right) -->
