@@ -302,13 +302,14 @@
           const scrollY = window.scrollY || window.pageYOffset;
           
           if (scrollY > homeHeight * 0.86) {
-            header.classList.add("bg-white", "shadow-md");
-            navLinks.forEach(link => {
-              link.classList.remove("pointer-events-none");
-              link.classList.replace("text-white", "text-gray-800");
-              link.classList.replace("opacity-0", "opacity-100");
-            });
-            if (window.innerWidth > 640){
+            if(window.innerWidth > 640){
+                header.classList.add("bg-white", "shadow-md");
+                navLinks.forEach(link => {
+                    link.classList.remove("pointer-events-none");
+                    link.classList.replace("text-white", "text-gray-800");
+                    link.classList.replace("opacity-0", "opacity-100");
+                });
+            
                 h1.classList.replace("text-white", "text-gray-800");
             }
             else {
@@ -317,24 +318,17 @@
     
             
           } else {
-            header.classList.remove("bg-white", "shadow-md");
-            navLinks.forEach(link => {
-              link.classList.add("pointer-events-none");    
-              link.classList.replace("text-gray-800", "text-white");
-              link.classList.replace("opacity-100", "opacity-0");
-            });
-            if (window.innerWidth > 640){
-                h1.classList.replace("text-gray-800", "text-white");
+            if(window.innerWidth > 640) {
+              header.classList.remove("bg-white", "shadow-md");
+              navLinks.forEach(link => {
+                link.classList.add("pointer-events-none");
+                link.classList.replace("text-gray-800", "text-white");
+                link.classList.replace("opacity-100", "opacity-0");
+              });
+              h1.classList.replace("text-gray-800", "text-white");
+            } else {
+              h1.classList.remove("invisible", "absolute", "-z-10");
             }
-            else {
-
-               clearTimeout(showHeaderTimeout);
-      showHeaderTimeout = setTimeout(() => {
-        h1.classList.remove("invisible", "absolute", "-z-10");
-      }, 20);
-            }
-            
-            
           }
         };
         
